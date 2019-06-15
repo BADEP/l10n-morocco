@@ -17,6 +17,7 @@
     'version': '0.1',
 
     'depends': ['l10n_ma'],
+    'autoinstall': True,
 
     'data': [
         'data/account_tax_data.xml',
@@ -24,5 +25,4 @@
         'data/res_country_data.xml',
         'views/report_invoice.xml',
     ],
-
 }
