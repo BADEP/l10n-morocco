@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<odoo>
+  <record id="l10n_kzc_temp_chart" model="account.chart.template">
+    <field name="code_digits">8</field>
+  </record>
+  <record id="pcg_34211" model="account.account.template">
+    <field name="user_type_id" ref="account.data_account_type_receivable"/>
+  </record>
+  <record id="pcg_34212" model="account.account.template">
+    <field name="user_type_id" ref="account.data_account_type_receivable"/>
+  </record>
+  <record id="pcg_4411" model="account.account.template">
+    <field name="user_type_id" ref="account.data_account_type_payable"/>
+  </record>
+</odoo>

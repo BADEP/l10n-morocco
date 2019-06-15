@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+            <div class="clearfix" position="after">
+                <p>
+                    <strong>Arrêtée la présente facture à la somme de: <span t-esc="o.currency_id.amount_to_text(o.amount_total)"/> TTC</strong>
+                </p>
+            </div>
+        </template>
+    </data>
+</odoo>
