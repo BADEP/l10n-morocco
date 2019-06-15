@@ -7,11 +7,11 @@
         subtitle on modules listing or apps.openerp.com""",
 
     'description': """
-        Long description of module's purpose
+        Mise a jour et correction de la localisation MAROC ODOO du meetup du 15 juin 2019 
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "BADEP,HORIYASOFT,PRAGMATICSYSTEM",
+    'website': "http://www.badep.com,http://www.horiyasoft.ma.http://www.pragmatic-system.ma",
 
     'category': 'Uncategorized',
     'version': '0.1',
