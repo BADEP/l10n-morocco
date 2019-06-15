@@ -21,8 +21,9 @@ class AccountAccount(models.Model):
     _inherit = 'account.account'
 
     @api.model
+    #Mise à jour des sociétés existantes. Les nouvelles
     def init_migration(self):
-        for company in self.env['res.company'].search([]):
+        for company in self.env['res.company'].search([('chart_template_id', '=', self.env.ref('l10n_ma.l10n_kzc_temp_chart').id)]):
             self.env['ir.property'].search([('name', '=', 'property_account_receivable_id'), ('company_id', '=', company.id)]).write({
                 'value_reference': 'account.account,' + str(self.env.ref('l10n_ma.' + str(company.id) +'_pcg_34211').id)})
             self.env['ir.property'].search([('name', '=', 'property_account_payable_id'), ('company_id', '=', company.id)]).write({
@@ -32,4 +33,11 @@ class AccountAccount(models.Model):
             company.write({
                 'account_sale_tax_id': self.env.ref('l10n_ma.' + str(company.id) +'_tva_vt20').id,
                 'account_purchase_tax_id': self.env.ref('l10n_ma.' + str(company.id) +'_tva_ac20').id,
+            })
+            #Créer position fiscale étranger
+            #TODO: Ne pas créer de position fiscale à la mise à jour du module ou si la position fiscale "étranger" est déjà dans le système
+            self.env['account.fiscal.position'].create({
+                'name': 'Etranger',
+                'tax_ids': [(0, 0, {'tax_src_id': self.env.ref('l10n_ma.' + str(company.id) +'_tva_vt20').id, 'tax_dest_id': self.env.ref('l10n_ma.' + str(company.id) +'_tva_exo').id}), (0, 0, {'tax_src_id': self.env.ref('l10n_ma.' + str(company.id) +'_tva_ac20').id, 'tax_dest_id': self.env.ref('l10n_ma.' + str(company.id) +'_tva_exo').id})],
+                'account_ids': [(0, 0, {'account_src_id': self.env.ref('l10n_ma.' + str(company.id) +'_pcg_7111').id, 'account_dest_id': self.env.ref('l10n_ma.' + str(company.id) +'_pcg_7113').id})]
             })
