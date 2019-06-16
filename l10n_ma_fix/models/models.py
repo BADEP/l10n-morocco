@@ -2,21 +2,6 @@
 
 from odoo import models, fields, api
 
-# class l10n_ma_fix(models.Model):
-#     _name = 'l10n_ma_fix.l10n_ma_fix'
-
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
-
-def _migrate_existing_data():
-    pass
-
 class AccountAccount(models.Model):
     _inherit = 'account.account'
 

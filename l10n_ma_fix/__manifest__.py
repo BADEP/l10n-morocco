@@ -2,22 +2,18 @@
 {
     'name': "l10n_ma_fix",
 
-    'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
     'description': """
-        Long description of module's purpose
+        Mise a jour et correction de la localisation MAROC ODOO du meetup du 15 juin 2019 
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "BADEP, HORIYASOFT, PRAGMATIC SYSTEM",
+    'website': "https://badep.ma, http://www.horiyasoft.ma, http://www.pragmatic-system.ma",
 
-    'category': 'Uncategorized',
+    'category': 'Technical',
     'version': '0.1',
 
     'depends': ['l10n_ma'],
-    'autoinstall': True,
+    'auto_install': True,
 
     'data': [
         'data/account_tax_data.xml',
