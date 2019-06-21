@@ -18,6 +18,7 @@ class AccountAccount(models.Model):
             company.write({
                 'account_sale_tax_id': self.env.ref('l10n_ma.' + str(company.id) +'_tva_vt20').id,
                 'account_purchase_tax_id': self.env.ref('l10n_ma.' + str(company.id) +'_tva_ac20').id,
+                'tax_exigibility': True,
             })
             #Créer position fiscale étranger
             #TODO: Ne pas créer de position fiscale à la mise à jour du module ou si la position fiscale "étranger" est déjà dans le système
