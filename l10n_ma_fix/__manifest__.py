@@ -13,7 +13,7 @@
     'version': '0.1',
 
     'depends': ['l10n_ma'],
-    'auto_install': True,
+    'auto_install': False,
 
     'data': [
         'data/account_tax_data.xml',
