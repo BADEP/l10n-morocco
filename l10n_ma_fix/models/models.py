@@ -9,12 +9,12 @@ class AccountAccount(models.Model):
     #Mise à jour des sociétés existantes. Les nouvelles sociétés auront le paramétrge automatique
     def init_migration(self):
         for company in self.env['res.company'].search([('chart_template_id', '=', self.env.ref('l10n_ma.l10n_kzc_temp_chart').id)]):
-            self.env['ir.property'].search([('name', '=', 'property_account_receivable_id'), ('company_id', '=', company.id)]).write({
-                'value_reference': 'account.account,' + str(self.env.ref('l10n_ma.' + str(company.id) +'_pcg_34211').id)})
-            self.env['ir.property'].search([('name', '=', 'property_account_payable_id'), ('company_id', '=', company.id)]).write({
-                'value_reference': 'account.account,' + str(self.env.ref('l10n_ma.' + str(company.id) +'_pcg_4411').id)})
-            self.env['ir.property'].search([('name', '=', 'property_account_expense_categ_id'), ('company_id', '=', company.id)]).write({
-                'value_reference': 'account.account,' + str(self.env.ref('l10n_ma.' + str(company.id) +'_pcg_6111').id)})
+            # self.env['ir.property'].search([('name', '=', 'property_account_receivable_id'), ('company_id', '=', company.id)]).write({
+            #     'value_reference': 'account.account,' + str(self.env.ref('l10n_ma.' + str(company.id) +'_pcg_34211').id)})
+            # self.env['ir.property'].search([('name', '=', 'property_account_payable_id'), ('company_id', '=', company.id)]).write({
+            #     'value_reference': 'account.account,' + str(self.env.ref('l10n_ma.' + str(company.id) +'_pcg_4411').id)})
+            # self.env['ir.property'].search([('name', '=', 'property_account_expense_categ_id'), ('company_id', '=', company.id)]).write({
+            #     'value_reference': 'account.account,' + str(self.env.ref('l10n_ma.' + str(company.id) +'_pcg_6111').id)})
             company.write({
                 'account_sale_tax_id': self.env.ref('l10n_ma.' + str(company.id) +'_tva_vt20').id,
                 'account_purchase_tax_id': self.env.ref('l10n_ma.' + str(company.id) +'_tva_ac20').id,
